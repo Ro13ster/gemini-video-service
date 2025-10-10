@@ -1,2 +1,2 @@
 # gemini-video-service
-Serverles video captioning pipeline (Gemini 3 + Ray + S3)
+Serverless video captioning pipeline (Gemini 3 + Ray + S3)
