@@ -205,3 +205,20 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Video files (test samples)
+#.mp4
+#.avi
+#.mov
+#.mkv
+#.webm
+#.flv
+
+# Output directories
+output/
+captions/
+temp/
+processed/
+
+# S3 credentials (to be added)
+aws-credentials.json
