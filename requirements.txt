@@ -3,3 +3,4 @@
    pytest
    opencv-python
    numpy
+   boto3
