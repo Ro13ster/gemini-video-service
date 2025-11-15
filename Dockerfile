@@ -6,9 +6,9 @@ WORKDIR /app
 
 # Install system dependencies for OpenCV
 RUN apt-get update && apt-get install -y \
-libgl1-mesa-glx \
-libglib2.0-0 \
-&& rm -rf /var/lib/apt/lists/*
+    libgl1-mesa-glx \
+    libglib2.0-0 \
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements first (for Docker layer caching)
 COPY requirements.txt .
@@ -23,8 +23,8 @@ COPY .env.example .env
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
 
-# Expose port (for future API)
+# Expose port for API
 EXPOSE 8000
 
-# Default command
-CMD ["python", "-m", "src.main"]
+# Start Ray Serve API (default)
+CMD ["serve", "run", "src.api:deployment", "--host", "0.0.0.0", "--port", "8000"]
