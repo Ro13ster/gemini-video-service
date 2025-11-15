@@ -1,0 +1,24 @@
+# Ray Serve deployment configuration
+applications:
+  - name: video-captioning
+    route_prefix: /
+    import_path: src.api:deployment
+    runtime_env:
+      working_dir: "."
+      pip:
+        - google-generativeai
+        - python-dotenv
+        - opencv-python
+        - numpy
+        - boto3
+        - ray[serve]
+        - fastapi
+        - python-multipart
+        - uvicorn
+    deployments:
+      - name: VideoCaptioningService
+        num_replicas: 1
+        max_concurrent_queries: 10
+        ray_actor_options:
+          num_cpus: 1
+          memory: 2000000000 # 2GB
